@@ -7,13 +7,13 @@ import 'package:stopwatch/features/pages/stop_watch_page.dart';
 import 'package:stopwatch/features/widgets/widgets.dart';
 import 'package:stopwatch/service_locator.dart';
 
-class MockStopWatchCubit extends MockCubit<StopWatchState> implements StopWatchCubit {}
+class MockStopWatchCubit extends MockCubit<StopWatchState> implements StopwatchCubit {}
 
 void main() {
   final MockStopWatchCubit stopWatchBloc = MockStopWatchCubit();
 
   setUpAll(() {
-    getIt.registerSingleton<StopWatchCubit>(stopWatchBloc);
+    getIt.registerSingleton<StopwatchCubit>(stopWatchBloc);
   });
 
   group('StopWatchPage', () {

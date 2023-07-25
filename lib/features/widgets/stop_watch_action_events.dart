@@ -32,7 +32,7 @@ class StopWatchActionEvents extends HookWidget {
             onPressed: () {
               _toggle(animationController);
 
-              getIt<StopWatchCubit>().resetTimer();
+              getIt<StopwatchCubit>().resetTimer();
             },
             child: BorderWrap(
                 animationController: animationController,
@@ -44,7 +44,7 @@ class StopWatchActionEvents extends HookWidget {
               onPressed: () async {
                 _toggle(animationController);
 
-                getIt<StopWatchCubit>().addLap();
+                getIt<StopwatchCubit>().addLap();
                 Future.delayed(const Duration(milliseconds: 100), () {
                   _scrollController
                       .jumpTo(_scrollController.position.maxScrollExtent);
@@ -58,9 +58,9 @@ class StopWatchActionEvents extends HookWidget {
             onPressed: () {
               _toggle(animationController);
               if (_isRunning) {
-                getIt<StopWatchCubit>().stopTimer();
+                getIt<StopwatchCubit>().stopTimer();
               } else {
-                getIt<StopWatchCubit>().startTimer();
+                getIt<StopwatchCubit>().startTimer();
               }
             },
             child: BorderWrap(

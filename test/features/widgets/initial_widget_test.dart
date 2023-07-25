@@ -10,7 +10,7 @@ void main() {
   final MockStopWatchCubit stopWatchBloc = MockStopWatchCubit();
 
   setUpAll(() {
-    getIt.registerSingleton<StopWatchCubit>(stopWatchBloc);
+    getIt.registerSingleton<StopwatchCubit>(stopWatchBloc);
   });
 
   testWidgets('renders InitialWidget', (tester) async {

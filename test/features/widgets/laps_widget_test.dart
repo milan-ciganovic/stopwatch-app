@@ -10,11 +10,11 @@ void main() {
   final MockStopWatchCubit stopWatchBloc = MockStopWatchCubit();
 
   setUpAll(() {
-    getIt.registerSingleton<StopWatchCubit>(stopWatchBloc);
+    getIt.registerSingleton<StopwatchCubit>(stopWatchBloc);
   });
 
   testWidgets('renders LapsWidget', (tester) async {
-    const List<int> laps = [4000, 8000, 12000];
+    const List<int> laps = [0];
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(

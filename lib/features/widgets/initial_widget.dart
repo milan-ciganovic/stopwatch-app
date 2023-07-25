@@ -25,7 +25,7 @@ class InitialWidget extends HookWidget {
           TextButton(
             onPressed: () {
               _toggle(animationController);
-              getIt<StopWatchCubit>().startTimer();
+              getIt<StopwatchCubit>().startTimer();
             },
             child: BorderWrap(animationController: animationController, child: const Icon(Icons.play_arrow, size: 40, color: Colors.white)),
           ),

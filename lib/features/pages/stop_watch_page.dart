@@ -18,7 +18,7 @@ class StopWatchPage extends HookWidget {
     final scrollController = useScrollController();
 
     return BlocProvider(
-      create: (_) => getIt<StopWatchCubit>(),
+      create: (_) => getIt<StopwatchCubit>(),
       child: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
@@ -26,7 +26,7 @@ class StopWatchPage extends HookWidget {
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.fill,
           )),
-          child: BlocBuilder<StopWatchCubit, StopWatchState>(
+          child: BlocBuilder<StopwatchCubit, StopWatchState>(
             builder: (context, state) {
               final displayTime = StopWatchTimer.getDisplayTime(state.time,
                   hours: false, milliSecond: false);

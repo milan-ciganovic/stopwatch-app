@@ -8,10 +8,10 @@ import 'package:stopwatch/service_locator.dart';
 import '../pages/stop_watch_page_test.dart';
 
 void main() {
-  final StopWatchCubit stopWatchBloc = MockStopWatchCubit();
+  final MockStopWatchCubit stopWatchBloc = MockStopWatchCubit();
 
   setUpAll(() {
-    getIt.registerSingleton<StopWatchCubit>(stopWatchBloc);
+    getIt.registerSingleton<StopwatchCubit>(stopWatchBloc);
   });
 
   testWidgets('finds "AddLap" and "Pause" button', (tester) async {
