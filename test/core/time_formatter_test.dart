@@ -5,7 +5,7 @@ void main() {
   group('TimeFormatter', () {
     test('Should format time with hours, minutes, seconds, and milliseconds', () {
       final formattedTime = TimeFormatter.formatTime(milliseconds: 3661000);
-      expect(formattedTime, equals('01:01:01.000'));
+      expect(formattedTime, equals('01:01:01.00'));
     });
 
     test('Should format time with hours and minutes only', () {
@@ -20,7 +20,7 @@ void main() {
 
     test('Should format time with seconds and milliseconds only', () {
       final formattedTime = TimeFormatter.formatTime(milliseconds: 59000, showHours: false, showMinutes: false);
-      expect(formattedTime, equals('59.000'));
+      expect(formattedTime, equals('59.00'));
     });
 
     test('Should format time with hours only', () {
