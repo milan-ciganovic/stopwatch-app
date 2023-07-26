@@ -12,7 +12,7 @@ class TimeFormatter {
     final hoursStr = _getDisplayHours(milliseconds);
     final minutesStr = _getDisplayMinutes(milliseconds, showHours: showHours);
     final secondsStr = _getDisplaySeconds(milliseconds, showMinutes: showMinutes);
-    final millisecondsStr = _getDisplayMilliseconds(milliseconds, showSeconds: showSeconds);
+    final millisecondsStr = _getDisplayMilliseconds(milliseconds);
 
     var result = '';
     if (showHours) {
@@ -60,8 +60,8 @@ class TimeFormatter {
   }
 
   /// Get display milliseconds time.
-  static String _getDisplayMilliseconds(int milliseconds, {bool showSeconds = false}) {
-    final ms = (milliseconds % 1000);
+  static String _getDisplayMilliseconds(int mSec) {
+    final ms = (mSec % 1000 / 10).floor();
     return ms.toString().padLeft(2, '0');
   }
 

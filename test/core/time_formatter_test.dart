@@ -41,7 +41,7 @@ void main() {
 
     test('Should format time with milliseconds only', () {
       final formattedTime = TimeFormatter.formatTime(milliseconds: 450, showHours: false, showMinutes: false, showSeconds: false);
-      expect(formattedTime, equals('450'));
+      expect(formattedTime, equals('45'));
     });
   });
 }
