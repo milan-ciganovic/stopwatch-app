@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:stopwatch/core/theme.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/features/widgets/initial_widget.dart';
 import 'package:stopwatch/generated/l10n.dart';
@@ -15,6 +16,7 @@ void main() {
     getIt.registerSingleton<StopwatchCubit>(stopWatchBloc, instanceName: 'StopwatchCubit');
     S.load(const Locale('en'));
     getIt.registerSingleton<S>(S.current);
+    getIt.registerSingleton<StopwatchTheme>(DeepPurpleStopwatchTheme());
   });
 
   testWidgets('renders InitialWidget', (tester) async {
