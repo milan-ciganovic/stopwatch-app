@@ -20,8 +20,7 @@ class StopWatchActionEvents extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final animationController = useAnimationController(
-        initialValue: 0.0, duration: const Duration(milliseconds: 500));
+    final animationController = useAnimationController(initialValue: 0.0, duration: const Duration(milliseconds: 500));
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,9 +33,7 @@ class StopWatchActionEvents extends HookWidget {
 
               getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').resetTimer();
             },
-            child: BorderWrap(
-                animationController: animationController,
-                child: const Icon(Icons.refresh, size: 40)),
+            child: BorderWrap(animationController: animationController, child: const Icon(Icons.refresh, size: 40)),
           )
         else
           TextButton(
@@ -46,27 +43,25 @@ class StopWatchActionEvents extends HookWidget {
 
                 getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').addLap();
                 Future.delayed(const Duration(milliseconds: 100), () {
-                  _scrollController
-                      .jumpTo(_scrollController.position.maxScrollExtent);
+                  _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
                 });
               },
-              child: BorderWrap(
-                  animationController: animationController,
-                  child: const Icon(Icons.flag, size: 40))),
+              child: BorderWrap(animationController: animationController, child: const Icon(Icons.flag, size: 40))),
         TextButton(
-            key: const Key('playPause'),
-            onPressed: () {
-              _toggle(animationController);
-              if (_isRunning) {
-                getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').stopTimer();
-              } else {
-                getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').startTimer();
-              }
-            },
-            child: BorderWrap(
-                animationController: animationController,
-                child: Icon(_isRunning ? Icons.pause : Icons.play_arrow,
-                    size: 40)))
+          key: const Key('playPause'),
+          onPressed: () {
+            _toggle(animationController);
+            if (_isRunning) {
+              getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').stopTimer();
+            } else {
+              getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').startTimer();
+            }
+          },
+          child: BorderWrap(
+            animationController: animationController,
+            child: Icon(_isRunning ? Icons.pause : Icons.play_arrow, size: 40),
+          ),
+        )
       ],
     );
   }
