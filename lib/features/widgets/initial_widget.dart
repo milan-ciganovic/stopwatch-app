@@ -21,7 +21,7 @@ class InitialWidget extends HookWidget {
       child: Column(
         children: [
           const Spacer(),
-          Text(tr.stopwatch, style: textStyle.copyWith(color: Colors.grey, fontSize: 16)),
+          Text(tr.stopwatch, style: theme.themeData.textTheme.bodyLarge),
           Text(displayTime, style: textStyle.copyWith(fontSize: 60, color: Colors.grey, fontWeight: FontWeight.w200)),
           Text(tr.ready, style: textStyle.copyWith(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.w100)),
           const Spacer(),

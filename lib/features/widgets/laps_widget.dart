@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
-import 'package:stopwatch/features/pages/stop_watch_page.dart';
 import 'package:stopwatch/service_locator.dart';
 
 class LapsWidget extends StatelessWidget {
@@ -32,8 +31,7 @@ class LapsWidget extends StatelessWidget {
                     children: [
                       Text("${tr.lap} ${(state.laps.length + 1)}", style: theme.themeData.textTheme.bodyLarge),
                       const SizedBox(height: 14),
-                      Text(displayTimeMilliseconds,
-                          style: theme.themeData.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold))
+                      Text(displayTimeMilliseconds, style: theme.themeData.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),
@@ -54,9 +52,9 @@ class LapsWidget extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("${tr.lap} ${(index + 1)}", style: textStyle.copyWith(fontSize: 12, color: Colors.grey)),
+                            Text("${tr.lap} ${(index + 1)}", style: theme.themeData.textTheme.headlineSmall),
                             const SizedBox(height: 14),
-                            Text(displayTime, style: textStyle.copyWith(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.bold))
+                            Text(displayTime, style: theme.themeData.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold))
                           ],
                         ),
                       ),

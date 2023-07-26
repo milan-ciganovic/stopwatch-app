@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:stopwatch/core/constants.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/features/widgets/button_border.dart';
 import 'package:stopwatch/service_locator.dart';
@@ -27,7 +28,7 @@ class StopWatchActionEvents extends HookWidget {
       children: [
         if (!_isRunning)
           TextButton(
-            key: const Key('resetTimer'),
+            key: const Key(resetTimerKey),
             onPressed: () {
               _toggle(animationController);
 
@@ -37,7 +38,7 @@ class StopWatchActionEvents extends HookWidget {
           )
         else
           TextButton(
-              key: const Key('addLap'),
+              key: const Key(addLapKey),
               onPressed: () async {
                 _toggle(animationController);
 
@@ -48,7 +49,7 @@ class StopWatchActionEvents extends HookWidget {
               },
               child: BorderWrap(animationController: animationController, child: const Icon(Icons.flag, size: 40))),
         TextButton(
-          key: const Key('playPause'),
+          key: const Key(playPauseKey),
           onPressed: () {
             _toggle(animationController);
             if (_isRunning) {
@@ -69,8 +70,6 @@ class StopWatchActionEvents extends HookWidget {
   void _toggle(AnimationController a) {
     if (a.value == 0.0) {
       a.forward();
-
-      // a.forward();
     } else {
       a.reverse();
     }
