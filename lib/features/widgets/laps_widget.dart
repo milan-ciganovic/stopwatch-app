@@ -30,10 +30,10 @@ class LapsWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("${tr.lap} ${(state.laps.length + 1)}", style: textStyle.copyWith(fontSize: 12, color: Colors.grey)),
+                      Text("${tr.lap} ${(state.laps.length + 1)}", style: theme.themeData.textTheme.bodyLarge),
                       const SizedBox(height: 14),
                       Text(displayTimeMilliseconds,
-                          style: textStyle.copyWith(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold))
+                          style: theme.themeData.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),

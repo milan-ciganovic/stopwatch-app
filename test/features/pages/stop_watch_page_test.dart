@@ -2,6 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:stopwatch/core/theme.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/features/pages/stop_watch_page.dart';
 import 'package:stopwatch/features/widgets/widgets.dart';
@@ -17,6 +18,7 @@ void main() {
     getIt.registerSingleton<StopwatchCubit>(stopWatchBloc, instanceName: 'StopwatchCubit');
     S.load(const Locale('en'));
     getIt.registerSingleton<S>(S.current);
+    getIt.registerSingleton<StopwatchTheme>(DeepPurpleStopwatchTheme());
   });
 
   group('StopWatchPage', () {

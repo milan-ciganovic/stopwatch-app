@@ -36,7 +36,7 @@ class StopWatchPage extends HookWidget {
                   : Center(
                       child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                         const Spacer(),
-                        Text('Stopwatch', style: textStyle.copyWith(color: Colors.grey, fontSize: 16)),
+                        Text(tr.stopwatch, style: textStyle.copyWith(color: Colors.grey, fontSize: 16)),
                         const Spacer(),
                         StopWatchTimerWidget(displayTime: displayTime),
                         const Spacer(),
