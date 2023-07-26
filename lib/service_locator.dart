@@ -9,7 +9,7 @@ final S tr = getIt<S>();
 
 void setup() {
   getIt.registerSingleton<StopwatchCubit>(
-    StopwatchCubit(Stopwatch(), StreamPeriodicTimerService()),
+    StopwatchCubit(Stopwatch(), TimerServiceImpl()),
     instanceName: 'StopwatchCubit',
   );
   getIt.registerSingleton<S>(S.current);

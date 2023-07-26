@@ -6,7 +6,7 @@ import 'package:bloc_test/bloc_test.dart';
 
 class MockStopwatch extends Mock implements Stopwatch {}
 
-class MockStreamPeriodicTimerService extends Mock implements StreamPeriodicTimerService {}
+class MockStreamPeriodicTimerService extends Mock implements TimerServiceImpl {}
 
 void main() {
   late final MockStopwatch mockStopwatch;
@@ -22,12 +22,15 @@ void main() {
   });
 
   group('StopwatchCubit', () {
-    blocTest<StopwatchCubit, StopWatchState>(
-      'emits the correct state when startTimer is called',
-      build: () => StopwatchCubit(mockStopwatch, mockStreamPeriodicTimerService),
-      act: (cubit) => cubit.startTimer(),
-      expect: () => [const StopWatchState(isRunning: true, time: 0)],
-    );
+    blocTest<StopwatchCubit, StopWatchState>('emits the correct state when startTimer is called',
+        build: () => StopwatchCubit(mockStopwatch, mockStreamPeriodicTimerService),
+        act: (cubit) {
+          cubit.startTimer();
+        },
+        expect: () => [const StopWatchState(isRunning: true, time: 0)],
+        verify: (bloc) {
+          verify(() => mockStopwatch.start()).called(1);
+        });
 
     blocTest<StopwatchCubit, StopWatchState>(
       'emits the correct state when stopTimer is called',

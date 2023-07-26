@@ -8,22 +8,18 @@ part 'stop_watch_state.dart';
 
 class StopwatchCubit extends Cubit<StopWatchState> {
   final Stopwatch _stopwatch;
-  final StreamPeriodicTimerService streamPeriodicTimerService;
+  final TimerServiceImpl streamPeriodicTimerService;
   StreamSubscription<dynamic>? _timer;
 
   StopwatchCubit(this._stopwatch, this.streamPeriodicTimerService) : super(const StopWatchState());
 
   void startTimer() {
-    if (!_stopwatch.isRunning) {
       _stopwatch.start();
-      _timer = Stream.periodic(const Duration(milliseconds: 200)).listen((event) {
+      _timer = streamPeriodicTimerService.periodic(const Duration(milliseconds: 200)).listen((event) {
         if (_stopwatch.isRunning) {
           emit(state.copyWith(time: _stopwatch.elapsedMilliseconds, isRunning: true));
         }
       });
-    } else {
-      emit(state.copyWith(time: _stopwatch.elapsedMilliseconds, isRunning: true));
-    }
   }
 
   void stopTimer() {
