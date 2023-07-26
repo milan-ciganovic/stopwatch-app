@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
+import 'package:stopwatch/gen/assets.gen.dart';
 import 'package:stopwatch/service_locator.dart';
 
 import '../widgets/widgets.dart';
@@ -18,43 +19,38 @@ class StopWatchPage extends HookWidget {
     final scrollController = useScrollController();
 
     return BlocProvider(
-      create: (_) => getIt<StopwatchCubit>(),
+      create: (_) => getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit'),
       child: Scaffold(
         body: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: AssetImage(Assets.images.background.path),
             fit: BoxFit.fill,
           )),
           child: BlocBuilder<StopwatchCubit, StopWatchState>(
             builder: (context, state) {
-              final displayTime = StopWatchTimer.getDisplayTime(state.time,
-                  hours: false, milliSecond: false);
+              final displayTime = StopWatchTimer.getDisplayTime(state.time, hours: false, milliSecond: false);
 
               return !state.isRunning
                   ? const InitialWidget()
                   : Center(
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            const Spacer(),
-                            Text('Stopwatch',
-                                style: textStyle.copyWith(
-                                    color: Colors.grey, fontSize: 16)),
-                            const Spacer(),
-                            StopWatchTimerWidget(displayTime: displayTime),
-                            const Spacer(),
-                            StopWatchActionEvents(
-                              isRunning: state.isRunning,
-                              scrollController: scrollController,
-                            ),
-                            const Spacer(),
-                            LapsWidget(
-                              state: state,
-                              scrollController: scrollController,
-                            ),
-                            const Spacer(),
-                          ]),
+                      child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                        const Spacer(),
+                        Text('Stopwatch', style: textStyle.copyWith(color: Colors.grey, fontSize: 16)),
+                        const Spacer(),
+                        StopWatchTimerWidget(displayTime: displayTime),
+                        const Spacer(),
+                        StopWatchActionEvents(
+                          isRunning: state.isRunning,
+                          scrollController: scrollController,
+                        ),
+                        const Spacer(),
+                        LapsWidget(
+                          state: state,
+                          scrollController: scrollController,
+                        ),
+                        const Spacer(),
+                      ]),
                     );
             },
           ),

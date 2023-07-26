@@ -4,6 +4,8 @@ import 'package:lottie/lottie.dart';
 import 'package:stopwatch/features/pages/stop_watch_page.dart';
 import 'dart:math' as math;
 
+import 'package:stopwatch/gen/assets.gen.dart';
+
 class StopWatchTimerWidget extends HookWidget {
   const StopWatchTimerWidget({
     Key? key,
@@ -14,8 +16,7 @@ class StopWatchTimerWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        useAnimationController(duration: const Duration(seconds: 2))..repeat();
+    final controller = useAnimationController(duration: const Duration(seconds: 2))..repeat();
 
     return Stack(
       alignment: Alignment.center,
@@ -28,11 +29,10 @@ class StopWatchTimerWidget extends HookWidget {
               child: child,
             );
           },
-          child: Image.asset('assets/images/dynamic_circle.png'),
+          child: Image.asset(Assets.images.dynamicCircle.path),
         ),
-        Lottie.asset('assets/images/wave.json', width: 385),
-        Text(displayTime,
-            style: textStyle.copyWith(fontSize: 60, color: Colors.white)),
+        Lottie.asset(Assets.images.wave, width: 385),
+        Text(displayTime, style: textStyle.copyWith(fontSize: 60, color: Colors.white)),
       ],
     );
   }

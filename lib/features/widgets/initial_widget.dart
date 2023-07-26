@@ -18,14 +18,14 @@ class InitialWidget extends HookWidget {
       child: Column(
         children: [
           const Spacer(),
-          Text('Stopwatch', style: textStyle.copyWith(color: Colors.grey, fontSize: 16)),
-          Text('00:00', style: textStyle.copyWith(fontSize: 60, color: Colors.grey, fontWeight: FontWeight.w200)),
-          Text('Ready?', style: textStyle.copyWith(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.w100)),
+          Text(tr.stopwatch, style: textStyle.copyWith(color: Colors.grey, fontSize: 16)),
+          Text(tr.initialTimer, style: textStyle.copyWith(fontSize: 60, color: Colors.grey, fontWeight: FontWeight.w200)),
+          Text(tr.ready, style: textStyle.copyWith(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.w100)),
           const Spacer(),
           TextButton(
             onPressed: () {
               _toggle(animationController);
-              getIt<StopwatchCubit>().startTimer();
+              getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').startTimer();
             },
             child: BorderWrap(animationController: animationController, child: const Icon(Icons.play_arrow, size: 40, color: Colors.white)),
           ),
