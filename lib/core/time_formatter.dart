@@ -62,7 +62,7 @@ class TimeFormatter {
   /// Get display milliseconds time.
   static String _getDisplayMilliseconds(int milliseconds, {bool showSeconds = false}) {
     final ms = (milliseconds % 1000);
-    return ms.toString().padLeft(3, '0');
+    return ms.toString().padLeft(2, '0');
   }
 
   /// Get total hours.
