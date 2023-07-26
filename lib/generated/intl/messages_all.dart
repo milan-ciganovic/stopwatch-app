@@ -8,7 +8,6 @@
 // ignore_for_file:argument_type_not_assignable, invalid_assignment
 // ignore_for_file:prefer_single_quotes, prefer_generic_function_type_aliases
 // ignore_for_file:comment_references
-// coverage:ignore-file
 
 import 'dart:async';
 
