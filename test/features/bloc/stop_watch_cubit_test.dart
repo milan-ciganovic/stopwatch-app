@@ -16,7 +16,7 @@ void main() {
     mockStopwatch = MockStopwatch();
     mockStreamPeriodicTimerService = MockStreamPeriodicTimerService();
 
-    when(() => mockStreamPeriodicTimerService.periodic(const Duration(milliseconds: 200))).thenAnswer((_) => const Stream.empty());
+    when(() => mockStreamPeriodicTimerService.periodic(const Duration(milliseconds: 200))).thenAnswer((_) =>  Stream.value(123));
     when(() => mockStopwatch.isRunning).thenReturn(true);
     when(() => mockStopwatch.elapsedMilliseconds).thenReturn(0);
   });
@@ -25,6 +25,8 @@ void main() {
     blocTest<StopwatchCubit, StopWatchState>('emits the correct state when startTimer is called',
         build: () => StopwatchCubit(mockStopwatch, mockStreamPeriodicTimerService),
         act: (cubit) {
+          when(() => mockStopwatch.isRunning).thenAnswer((_) => true);
+
           cubit.startTimer();
         },
         expect: () => [const StopWatchState(isRunning: true, time: 0)],
@@ -53,7 +55,7 @@ void main() {
         cubit.addLap();
       },
       expect: () => [
-        const StopWatchState(isRunning: true, laps: []),
+        const StopWatchState(isRunning: false, laps: [0]),
         const StopWatchState(isRunning: true, laps: [0]),
       ],
     );

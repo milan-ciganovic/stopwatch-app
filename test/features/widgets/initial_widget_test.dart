@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/features/widgets/initial_widget.dart';
 import 'package:stopwatch/generated/l10n.dart';
@@ -25,5 +26,17 @@ void main() {
     expect(find.text(tr.initialTimer), findsOneWidget);
     expect(find.text(tr.ready), findsOneWidget);
     expect(find.byType(TextButton), findsOneWidget);
+  });
+
+  testWidgets('calls startTimer() when start button is pressed', (tester) async {
+    await tester.pumpWidget(const MaterialApp(home: Scaffold(body: InitialWidget())));
+
+    await tester.pump();
+
+    await tester.tap(find.byType(TextButton));
+
+    await tester.pumpAndSettle();
+
+    verify(() => stopWatchBloc.startTimer()).called(1);
   });
 }
