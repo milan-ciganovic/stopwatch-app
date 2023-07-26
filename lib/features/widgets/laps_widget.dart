@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/service_locator.dart';
+
+import '../../core/time_formatter.dart';
 
 class LapsWidget extends StatelessWidget {
   const LapsWidget({Key? key, required this.state, required this.scrollController}) : super(key: key);
@@ -11,7 +12,7 @@ class LapsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final displayTimeMilliseconds = StopWatchTimer.getDisplayTime(state.time, hours: false, milliSecond: true);
+    final displayTimeMilliseconds = TimeFormatter.formatTime(milliseconds: state.time, showHours: false, showMilliseconds: true);
 
     return Expanded(
       child: Padding(
@@ -44,7 +45,7 @@ class LapsWidget extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   reverse: true,
                   children: List.generate(state.laps.length, (index) {
-                    final displayTime = StopWatchTimer.getDisplayTime(state.laps[index], hours: false);
+                    final displayTime = TimeFormatter.formatTime(milliseconds: state.laps[index], showHours: false);
 
                     return Padding(
                       padding: const EdgeInsets.only(right: 12.0),

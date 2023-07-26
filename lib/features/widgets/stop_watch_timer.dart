@@ -1,10 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lottie/lottie.dart';
-import 'package:stopwatch/features/pages/stop_watch_page.dart';
-import 'dart:math' as math;
-
 import 'package:stopwatch/gen/assets.gen.dart';
+import 'package:stopwatch/service_locator.dart';
 
 class StopWatchTimerWidget extends HookWidget {
   const StopWatchTimerWidget({
@@ -32,7 +32,7 @@ class StopWatchTimerWidget extends HookWidget {
           child: Image.asset(Assets.images.dynamicCircle.path),
         ),
         Lottie.asset(Assets.images.wave, width: 385),
-        Text(displayTime, style: textStyle.copyWith(fontSize: 60, color: Colors.white)),
+        Text(displayTime, style: theme.themeData.textTheme.headlineLarge),
       ],
     );
   }

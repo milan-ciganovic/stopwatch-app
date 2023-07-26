@@ -31,8 +31,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # stopwatch
-  stop_watch_timer: ^2.0.0
   # state management
   flutter_bloc: ^8.1.2
   # service locator
