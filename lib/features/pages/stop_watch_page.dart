@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/gen/assets.gen.dart';
@@ -32,7 +32,7 @@ class StopWatchPage extends HookWidget {
               final displayTime = StopWatchTimer.getDisplayTime(state.time, hours: false, milliSecond: false);
 
               return !state.isRunning
-                  ? const InitialWidget()
+                  ? InitialWidget(displayTime: displayTime)
                   : Center(
                       child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                         const Spacer(),

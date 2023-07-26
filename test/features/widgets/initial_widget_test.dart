@@ -18,18 +18,26 @@ void main() {
   });
 
   testWidgets('renders InitialWidget', (tester) async {
-    await tester.pumpWidget(const MaterialApp(home: Scaffold(body: InitialWidget())));
+    await tester.pumpWidget(const MaterialApp(
+        home: Scaffold(
+            body: InitialWidget(
+      displayTime: '02:12',
+    ))));
 
     await tester.pump();
 
     expect(find.text(tr.stopwatch), findsOneWidget);
-    expect(find.text(tr.initialTimer), findsOneWidget);
+    expect(find.text('02:12'), findsOneWidget);
     expect(find.text(tr.ready), findsOneWidget);
     expect(find.byType(TextButton), findsOneWidget);
   });
 
   testWidgets('calls startTimer() when start button is pressed', (tester) async {
-    await tester.pumpWidget(const MaterialApp(home: Scaffold(body: InitialWidget())));
+    await tester.pumpWidget(const MaterialApp(
+        home: Scaffold(
+            body: InitialWidget(
+      displayTime: '',
+    ))));
 
     await tester.pump();
 

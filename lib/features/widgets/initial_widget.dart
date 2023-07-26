@@ -6,7 +6,10 @@ import 'package:stopwatch/features/widgets/button_border.dart';
 import 'package:stopwatch/service_locator.dart';
 
 class InitialWidget extends HookWidget {
+  final String displayTime;
+
   const InitialWidget({
+    required this.displayTime,
     Key? key,
   }) : super(key: key);
 
@@ -19,7 +22,7 @@ class InitialWidget extends HookWidget {
         children: [
           const Spacer(),
           Text(tr.stopwatch, style: textStyle.copyWith(color: Colors.grey, fontSize: 16)),
-          Text(tr.initialTimer, style: textStyle.copyWith(fontSize: 60, color: Colors.grey, fontWeight: FontWeight.w200)),
+          Text(displayTime, style: textStyle.copyWith(fontSize: 60, color: Colors.grey, fontWeight: FontWeight.w200)),
           Text(tr.ready, style: textStyle.copyWith(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.w100)),
           const Spacer(),
           TextButton(

@@ -19,10 +19,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: tr.stopwatch,
       theme: theme.themeData,
-      // theme: ThemeData(
-      //   primarySwatch: Colors.deepPurple,
-      //   brightness: Brightness.dark,
-      // ),
       home: const StopWatchPage(),
     );
   }

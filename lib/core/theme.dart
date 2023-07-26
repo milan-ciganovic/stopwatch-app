@@ -6,23 +6,31 @@ abstract class StopwatchTheme {
 
 class DeepPurpleStopwatchTheme extends StopwatchTheme {
   @override
-  // TODO: implement themeData
-  ThemeData get themeData => ThemeData(textTheme: const TextTheme());
-
-// const TextStyle defaultTextStyle = TextStyle(
-//   color: Colors.grey,
-//   fontSize: 16,
-// );
-//
-// const TextStyle headingTextStyle = TextStyle(
-//   color: Colors.grey,
-//   fontSize: 60,
-//   fontWeight: FontWeight.w200,
-// );
-//
-// const TextStyle subheadingTextStyle = TextStyle(
-//   color: Colors.grey,
-//   fontSize: 12,
-//   fontWeight: FontWeight.w100,
-// );
+  ThemeData get themeData => ThemeData(
+        primaryColor: Colors.deepPurple,
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(
+            color: Colors.grey,
+            fontSize: 16,
+          ),
+          bodyMedium: TextStyle(
+            color: Colors.grey,
+            fontSize: 14,
+          ),
+          bodySmall: TextStyle(
+            color: Colors.grey,
+            fontSize: 12,
+          ),
+          headlineLarge: TextStyle(
+            color: Colors.grey,
+            fontSize: 60,
+            fontWeight: FontWeight.w200,
+          ),
+          headlineSmall: TextStyle(
+            color: Colors.grey,
+            fontSize: 12,
+            fontWeight: FontWeight.w100,
+          ),
+        ),
+      );
 }
