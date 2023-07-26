@@ -42,6 +42,6 @@ void main() {
       expect(find.text('Lap ${i + 1}'), findsOneWidget);
     }
     expect(find.text('Lap ${laps.length + 1}'), findsOneWidget);
-    expect(find.text('00:16.00'), findsOneWidget);
+    expect(find.text('00:16.000'), findsOneWidget);
   });
 }
