@@ -32,7 +32,7 @@ void main() {
     expect(find.text(tr.stopwatch), findsOneWidget);
     expect(find.text('02:12'), findsOneWidget);
     expect(find.text(tr.ready), findsOneWidget);
-    expect(find.byType(TextButton), findsNWidgets(2));
+    expect(find.byType(GestureDetector), findsNWidgets(2));
   });
 
   testWidgets('calls startTimer() when start button is pressed', (tester) async {

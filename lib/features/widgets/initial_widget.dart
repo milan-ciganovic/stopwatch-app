@@ -28,17 +28,18 @@ class InitialWidget extends HookWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
+              GestureDetector(
                 key: const Key(startTimerKey),
-                onPressed: () {
+                onTap: () {
                   _toggle(animationController);
                   getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').startTimer();
                 },
                 child: BorderWrap(animationController: animationController, child: const Icon(Icons.play_arrow)),
               ),
-              TextButton(
+              const SizedBox(width: 12),
+              GestureDetector(
                 key: const Key(resetTimerKey),
-                onPressed: () {
+                onTap: () {
                   _toggle(animationController);
 
                   getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').resetTimer();

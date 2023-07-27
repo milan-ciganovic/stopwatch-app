@@ -8,8 +8,9 @@ abstract class StopwatchTheme {
 class DeepPurpleStopwatchTheme extends StopwatchTheme {
   @override
   ThemeData get themeData => ThemeData(
-    colorScheme: const ColorScheme.light(primary: Colors.white),
+        colorScheme: const ColorScheme.light(primary: Colors.white),
         fontFamily: GoogleFonts.montserrat().fontFamily,
+        iconTheme: const IconThemeData(color: Colors.white, size: 40),
         textTheme: const TextTheme(
           bodyLarge: TextStyle(
             color: Colors.grey,

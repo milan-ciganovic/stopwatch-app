@@ -26,9 +26,9 @@ class StopWatchActionEvents extends HookWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        TextButton(
+        GestureDetector(
             key: const Key(addLapKey),
-            onPressed: () async {
+            onTap: () async {
               _toggle(animationController);
 
               getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').addLap();
@@ -37,9 +37,9 @@ class StopWatchActionEvents extends HookWidget {
               });
             },
             child: BorderWrap(animationController: animationController, child: const Icon(Icons.flag))),
-        TextButton(
+        GestureDetector(
           key: const Key(playPauseKey),
-          onPressed: () {
+          onTap: () {
             _toggle(animationController);
             if (_isRunning) {
               getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').stopTimer();
