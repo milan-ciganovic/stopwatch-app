@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:stopwatch/core/constants.dart';
 import 'package:stopwatch/core/theme.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/features/widgets/initial_widget.dart';
@@ -31,22 +32,32 @@ void main() {
     expect(find.text(tr.stopwatch), findsOneWidget);
     expect(find.text('02:12'), findsOneWidget);
     expect(find.text(tr.ready), findsOneWidget);
-    expect(find.byType(TextButton), findsOneWidget);
+    expect(find.byType(TextButton), findsNWidgets(2));
   });
 
   testWidgets('calls startTimer() when start button is pressed', (tester) async {
-    await tester.pumpWidget(const MaterialApp(
-        home: Scaffold(
-            body: InitialWidget(
-      displayTime: '',
-    ))));
+    await tester.pumpWidget(const MaterialApp(home: Scaffold(body: InitialWidget(displayTime: ''))));
 
     await tester.pump();
 
-    await tester.tap(find.byType(TextButton));
+    await tester.tap(find.byKey(const Key(startTimerKey)));
 
     await tester.pumpAndSettle();
 
     verify(() => stopWatchBloc.startTimer()).called(1);
+    verifyNoMoreInteractions(stopWatchBloc);
+  });
+
+  testWidgets('calls resetTimer() when start button is pressed', (tester) async {
+    await tester.pumpWidget(const MaterialApp(home: Scaffold(body: InitialWidget(displayTime: ''))));
+
+    await tester.pump();
+
+    await tester.tap(find.byKey(const Key(resetTimerKey)));
+
+    await tester.pumpAndSettle();
+
+    verify(() => stopWatchBloc.resetTimer()).called(1);
+    verifyNoMoreInteractions(stopWatchBloc);
   });
 }

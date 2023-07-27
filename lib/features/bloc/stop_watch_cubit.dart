@@ -14,12 +14,12 @@ class StopwatchCubit extends Cubit<StopWatchState> {
   StopwatchCubit(this._stopwatch, this.streamPeriodicTimerService) : super(const StopWatchState());
 
   void startTimer() {
-      _stopwatch.start();
-      _timer = streamPeriodicTimerService.periodic(const Duration(milliseconds: 200)).listen((event) {
-        if (_stopwatch.isRunning) {
-          emit(state.copyWith(time: _stopwatch.elapsedMilliseconds, isRunning: true));
-        }
-      });
+    _stopwatch.start();
+    _timer = streamPeriodicTimerService.periodic(const Duration(milliseconds: 200)).listen((event) {
+      if (_stopwatch.isRunning) {
+        emit(state.copyWith(time: _stopwatch.elapsedMilliseconds, isRunning: true));
+      }
+    });
   }
 
   void stopTimer() {
@@ -30,7 +30,7 @@ class StopwatchCubit extends Cubit<StopWatchState> {
   }
 
   void resetTimer() {
-    stopTimer();
+    _stopwatch.reset();
     emit(state.copyWith(time: 0, laps: []));
   }
 

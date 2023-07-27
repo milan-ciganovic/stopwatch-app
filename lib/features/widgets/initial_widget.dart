@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:stopwatch/core/constants.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/features/widgets/button_border.dart';
 import 'package:stopwatch/service_locator.dart';
@@ -24,18 +25,27 @@ class InitialWidget extends HookWidget {
           Text(displayTime, style: theme.themeData.textTheme.headlineLarge),
           Text(tr.ready, style: theme.themeData.textTheme.headlineSmall),
           const Spacer(),
-          TextButton(
-            onPressed: () {
-              _toggle(animationController);
-              getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').startTimer();
-            },
-            child: BorderWrap(
-                animationController: animationController,
-                child: const Icon(
-                  Icons.play_arrow,
-                  size: 40,
-                  color: Colors.white,
-                )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                key: const Key(startTimerKey),
+                onPressed: () {
+                  _toggle(animationController);
+                  getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').startTimer();
+                },
+                child: BorderWrap(animationController: animationController, child: const Icon(Icons.play_arrow)),
+              ),
+              TextButton(
+                key: const Key(resetTimerKey),
+                onPressed: () {
+                  _toggle(animationController);
+
+                  getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').resetTimer();
+                },
+                child: BorderWrap(animationController: animationController, child: const Icon(Icons.refresh)),
+              )
+            ],
           ),
           const Spacer(),
         ],

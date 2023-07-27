@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:stopwatch/core/constants.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/features/widgets/widgets.dart';
 import 'package:stopwatch/generated/l10n.dart';
@@ -55,7 +56,6 @@ void main() {
 
     await tester.pump();
 
-    expect(find.byIcon(Icons.refresh), findsOneWidget);
     expect(find.byIcon(Icons.play_arrow), findsOneWidget);
   });
 
@@ -73,7 +73,7 @@ void main() {
 
     await tester.pump();
 
-    await tester.tap(find.byKey(const Key('playPause')));
+    await tester.tap(find.byKey(const Key(playPauseKey)));
 
     await tester.pumpAndSettle();
 
@@ -94,32 +94,10 @@ void main() {
 
     await tester.pump();
 
-    await tester.tap(find.byKey(const Key('playPause')));
+    await tester.tap(find.byKey(const Key(playPauseKey)));
 
     await tester.pumpAndSettle();
 
     verify(() => stopWatchBloc.startTimer());
   });
-
-  testWidgets('when player is not running and "ResetTimer" button is tapped, should call "resetTimer"', (tester) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: StopWatchActionEvents(
-            scrollController: ScrollController(),
-            isRunning: false,
-          ),
-        ),
-      ),
-    );
-
-    await tester.pump();
-
-    await tester.tap(find.byKey(const Key('resetTimer')));
-
-    await tester.pumpAndSettle();
-
-    verify(() => stopWatchBloc.resetTimer());
-  });
-
 }

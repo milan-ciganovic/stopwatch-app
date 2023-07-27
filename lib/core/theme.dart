@@ -7,7 +7,7 @@ abstract class StopwatchTheme {
 class DeepPurpleStopwatchTheme extends StopwatchTheme {
   @override
   ThemeData get themeData => ThemeData(
-        primaryColor: Colors.deepPurple,
+        colorScheme: const ColorScheme.light(primary: Colors.white),
         textTheme: const TextTheme(
           bodyLarge: TextStyle(
             color: Colors.grey,

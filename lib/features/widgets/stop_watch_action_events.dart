@@ -26,28 +26,17 @@ class StopWatchActionEvents extends HookWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        if (!_isRunning)
-          TextButton(
-            key: const Key(resetTimerKey),
-            onPressed: () {
+        TextButton(
+            key: const Key(addLapKey),
+            onPressed: () async {
               _toggle(animationController);
 
-              getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').resetTimer();
+              getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').addLap();
+              Future.delayed(const Duration(milliseconds: 100), () {
+                _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+              });
             },
-            child: BorderWrap(animationController: animationController, child: const Icon(Icons.refresh, size: 40)),
-          )
-        else
-          TextButton(
-              key: const Key(addLapKey),
-              onPressed: () async {
-                _toggle(animationController);
-
-                getIt.get<StopwatchCubit>(instanceName: 'StopwatchCubit').addLap();
-                Future.delayed(const Duration(milliseconds: 100), () {
-                  _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
-                });
-              },
-              child: BorderWrap(animationController: animationController, child: const Icon(Icons.flag, size: 40))),
+            child: BorderWrap(animationController: animationController, child: const Icon(Icons.flag))),
         TextButton(
           key: const Key(playPauseKey),
           onPressed: () {
@@ -60,7 +49,7 @@ class StopWatchActionEvents extends HookWidget {
           },
           child: BorderWrap(
             animationController: animationController,
-            child: Icon(_isRunning ? Icons.pause : Icons.play_arrow, size: 40),
+            child: Icon(_isRunning ? Icons.pause : Icons.play_arrow),
           ),
         )
       ],
