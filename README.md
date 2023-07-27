@@ -1,16 +1,22 @@
-# stopwatch
+# Stopwatch
 
-A new Flutter project.
+A simple stopwatch app written in Dart using Flutter framework.
 
-## Getting Started
+[![Coverage](./coverage_badge.svg?sanitize=true)](https://about.codecov.io/)
 
-This project is a starting point for a Flutter application.
+## Demo
 
-A few resources to get you started if this is your first Flutter project:
+![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzl3ZzYyYTh5ZTY1eHh6YW4xYWd6dDlnd2NwcjVnaXM3YXVieDJuZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y1IAEXaD3ih12Mlot4/giphy.gif)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Design
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Inspiration from: https://dribbble.com/shots/20865657-Stopwatch-Mobile-App-design-iOS-Android-ux-ui-designer
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+flutter test --coverage
+```
+
