@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class StopwatchTheme {
   ThemeData get themeData;
@@ -7,7 +8,8 @@ abstract class StopwatchTheme {
 class DeepPurpleStopwatchTheme extends StopwatchTheme {
   @override
   ThemeData get themeData => ThemeData(
-        colorScheme: const ColorScheme.light(primary: Colors.white),
+    colorScheme: const ColorScheme.light(primary: Colors.white),
+        fontFamily: GoogleFonts.montserrat().fontFamily,
         textTheme: const TextTheme(
           bodyLarge: TextStyle(
             color: Colors.grey,

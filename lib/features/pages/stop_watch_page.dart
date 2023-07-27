@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:stopwatch/features/bloc/stop_watch_cubit.dart';
 import 'package:stopwatch/gen/assets.gen.dart';
 import 'package:stopwatch/service_locator.dart';
 
 import '../../core/time_formatter.dart';
 import '../widgets/widgets.dart';
-
-TextStyle textStyle = GoogleFonts.montserrat();
 
 class StopWatchPage extends HookWidget {
   const StopWatchPage({super.key});
