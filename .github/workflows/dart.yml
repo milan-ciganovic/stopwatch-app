@@ -42,4 +42,4 @@ jobs:
 
       # Build the Flutter web app after fetching dependencies.
       - name: Build Flutter web app
-        run: flutter run -v -d Chrome --release
+        run: flutter build web --release
