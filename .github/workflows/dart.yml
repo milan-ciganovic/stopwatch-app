@@ -38,4 +38,4 @@ jobs:
       # Your project will need to have tests in test/ and a dependency on
       # package:test for this step to succeed.
       - name: Run tests
-        run: dart test
+        run: flutter test
