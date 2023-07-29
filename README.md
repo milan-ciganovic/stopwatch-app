@@ -5,6 +5,7 @@ A simple stopwatch app written in Dart using Flutter framework.
 [![Coverage](./coverage_badge.svg?sanitize=true)](https://about.codecov.io/)
 
 ## Demo 🚀
+Live demo - https://milan-ciganovic.github.io/stopwatch-app/#/
 
 ![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzl3ZzYyYTh5ZTY1eHh6YW4xYWd6dDlnd2NwcjVnaXM3YXVieDJuZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y1IAEXaD3ih12Mlot4/giphy.gif)
 
