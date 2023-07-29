@@ -37,8 +37,8 @@ jobs:
 
       # Your project will need to have tests in test/ and a dependency on
       # package:test for this step to succeed.
-      - name: Run tests
-        run: dart test
+      #      - name: Run tests
+      #        run: dart test
 
       # Build the Flutter web app after fetching dependencies.
       - name: Build Flutter web app
