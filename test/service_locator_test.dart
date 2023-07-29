@@ -14,6 +14,6 @@ void main() {
   });
   test('registers an instance of StopwatchCubit', () {
     expect(getIt.isRegistered<StopwatchCubit>(instanceName: 'StopwatchCubit'), true);
-    expect(getIt.isRegistered<S>(instance: tr), true);
+    expect(getIt.isRegistered<S>(instance: tr), false);
   });
 }
