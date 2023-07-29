@@ -7,9 +7,9 @@ name: Dart
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -36,7 +36,13 @@ jobs:
         run: dart analyze
 
       # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
+      # package:test for this step to succeed.
       - name: Run tests
         run: dart test
+
+      # Add the following steps to build the Flutter web app.
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+
+      - name: Build Flutter web app
+        run: flutter build web
